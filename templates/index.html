@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lildistributs - Music Distribution Portal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 bg-secondary p-4 rounded shadow">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="mb-0">🎵 Lildistributs</h3>
+                    <a href="/dashboard" class="btn btn-outline-light btn-sm">View Dashboard</a>
+                </div>
+                
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-warning" role="alert">{{ message }}</div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Artist / Stage Name</label>
+                        <input type="text" class="form-control" name="artist" placeholder="e.g. Lilcanny" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Song Title</label>
+                        <input type="text" class="form-control" name="song_title" placeholder="e.g. PAST" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cover Art (Image file)</label>
+                        <input type="file" class="form-control" name="cover_art" accept="image/*" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Audio File (MP3 / WAV)</label>
+                        <input type="file" class="form-control" name="audio_file" accept="audio/*" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Social Media Handles / Links (Optional)</label>
+                        <input type="text" class="form-control" name="social_links" placeholder="Instagram / TikTok handle">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Upload & Deploy to Stores</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
