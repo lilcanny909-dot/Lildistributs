@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Sign Up - Lildistributs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5 bg-secondary p-4 rounded shadow">
+                <h3 class="text-center mb-3">🎵 Lildistributs</h3>
+                <h5 class="text-center text-warning mb-4">Create Artist Account</h5>
+
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-warning" role="alert">{{ message }}</div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+
+                <form action="/register" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Artist / User Name</label>
+                        <input type="text" name="username" class="form-control" placeholder="e.g. Lilcanny" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="artist@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                </form>
+                <div class="text-center mt-3">
+                    <small>Already have an account? <a href="/login" class="text-warning">Log In</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
