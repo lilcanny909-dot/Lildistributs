@@ -14,13 +14,13 @@
       margin: 0;
       min-height: 100vh;
       padding: 2rem 1rem 3rem;
-      color: #ffffff;
+      color: #f8fafc;
       background:
-        radial-gradient(circle at 12% 18%, rgba(255, 77, 166, 0.65), transparent 42%),
-        radial-gradient(circle at 88% 15%, rgba(0, 212, 255, 0.6), transparent 45%),
-        radial-gradient(circle at 80% 85%, rgba(255, 196, 0, 0.55), transparent 45%),
-        radial-gradient(circle at 20% 85%, rgba(123, 97, 255, 0.7), transparent 48%),
-        linear-gradient(135deg, #140b2d 0%, #1f1147 50%, #0e2442 100%);
+        radial-gradient(circle at 12% 18%, rgba(6, 182, 212, 0.45), transparent 42%),
+        radial-gradient(circle at 88% 15%, rgba(16, 185, 129, 0.4), transparent 45%),
+        radial-gradient(circle at 80% 85%, rgba(245, 158, 11, 0.35), transparent 45%),
+        radial-gradient(circle at 20% 85%, rgba(37, 99, 235, 0.5), transparent 48%),
+        linear-gradient(135deg, #060b14 0%, #0b1628 50%, #071921 100%);
       background-attachment: fixed;
       overflow-x: hidden;
     }
@@ -29,23 +29,23 @@
     .orb {
       position: fixed;
       border-radius: 50%;
-      filter: blur(50px);
+      filter: blur(55px);
       z-index: 0;
       pointer-events: none;
     }
     .orb-1 {
-      width: 220px;
-      height: 220px;
+      width: 240px;
+      height: 240px;
       top: 6%;
-      left: -40px;
-      background: rgba(255, 64, 150, 0.45);
+      left: -50px;
+      background: rgba(6, 182, 212, 0.4);
     }
     .orb-2 {
-      width: 260px;
-      height: 260px;
+      width: 270px;
+      height: 270px;
       bottom: 8%;
       right: -60px;
-      background: rgba(0, 229, 255, 0.4);
+      background: rgba(16, 185, 129, 0.35);
     }
 
     .container {
@@ -58,17 +58,17 @@
     .glass {
       background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.22),
-        rgba(255, 255, 255, 0.08)
+        rgba(255, 255, 255, 0.14),
+        rgba(255, 255, 255, 0.04)
       );
       backdrop-filter: blur(18px) saturate(160%);
       -webkit-backdrop-filter: blur(18px) saturate(160%);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-top-color: rgba(255, 255, 255, 0.6);
-      border-left-color: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-top-color: rgba(255, 255, 255, 0.45);
+      border-left-color: rgba(255, 255, 255, 0.35);
       box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 1px rgba(255, 255, 255, 0.45);
+        0 14px 35px rgba(0, 0, 0, 0.45),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
     }
 
     .card {
@@ -83,23 +83,24 @@
       text-transform: uppercase;
       padding: 0.3rem 0.75rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(6, 182, 212, 0.18);
+      border: 1px solid rgba(6, 182, 212, 0.45);
       margin-bottom: 1rem;
-      color: #ffe89e;
+      color: #67e8f9;
+      font-weight: bold;
     }
 
     .quote {
       font-size: 1.35rem;
       line-height: 1.55;
       margin-bottom: 1rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
     }
 
     .author {
       font-weight: bold;
       text-align: right;
-      color: #a8f5ff;
+      color: #34d399;
       margin-bottom: 1.25rem;
     }
 
@@ -111,7 +112,7 @@
 
     button {
       padding: 0.6rem 1.05rem;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       border-radius: 12px;
       color: #ffffff;
       font-weight: 600;
@@ -123,8 +124,8 @@
 
     button:hover {
       transform: translateY(-2px);
-      filter: brightness(1.12);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      filter: brightness(1.15);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
     }
 
     button:active {
@@ -132,25 +133,26 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, rgba(0, 198, 255, 0.65), rgba(0, 114, 255, 0.65));
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(37, 99, 235, 0.7));
     }
 
     .btn-fav {
-      background: linear-gradient(135deg, rgba(255, 77, 166, 0.65), rgba(168, 85, 247, 0.65));
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.65), rgba(5, 150, 105, 0.75));
     }
 
     .btn-notify {
-      background: linear-gradient(135deg, rgba(255, 183, 3, 0.7), rgba(251, 86, 7, 0.7));
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.7), rgba(217, 119, 6, 0.75));
     }
 
     .btn-notify.active {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.75), rgba(5, 150, 105, 0.75));
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.8), rgba(13, 148, 136, 0.85));
+      border-color: rgba(94, 234, 212, 0.7);
     }
 
     .status-bar {
       margin-top: 0.9rem;
       font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.88);
+      color: #cbd5e1;
       min-height: 1.2em;
     }
 
@@ -161,7 +163,8 @@
     #favorites h2 {
       font-size: 1.2rem;
       margin-bottom: 0.75rem;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      color: #e2e8f0;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
 
     #favorites ul {
@@ -189,10 +192,10 @@
       flex-shrink: 0;
       padding: 0.35rem 0.75rem;
       font-size: 0.82rem;
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.7), rgba(185, 28, 28, 0.7));
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.7), rgba(153, 27, 27, 0.75));
     }
 
-    /* In-app toast fallback if browser notifications are blocked or unsupported */
+    /* In-app toast fallback */
     .toast {
       position: fixed;
       bottom: 1.25rem;
@@ -216,7 +219,7 @@
     .toast-title {
       font-weight: bold;
       font-size: 0.9rem;
-      color: #ffe89e;
+      color: #67e8f9;
       margin-bottom: 0.25rem;
     }
 
@@ -233,7 +236,7 @@
 
 <div class="container">
   <div class="card glass">
-    <div class="badge">Glass Daily Quote</div>
+    <div class="badge">Daily Quote</div>
     <div id="quote" class="quote">Loading...</div>
     <div id="author" class="author"></div>
 
@@ -336,7 +339,7 @@
         setStatus('Push quote notification sent.');
         return;
       } catch (e) {
-        // Fallback to in-app glass banner if environment blocks constructor
+        // Fallback to in-app glass banner
       }
     }
 
