@@ -3,180 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Quote — Glass Edition</title>
+  <title>Daily Quote</title>
   <style>
     * {
       box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       min-height: 100vh;
       padding: 2rem 1rem 3rem;
-      color: #f8fafc;
+      color: #ffffff;
       background:
-        radial-gradient(circle at 12% 18%, rgba(6, 182, 212, 0.45), transparent 42%),
-        radial-gradient(circle at 88% 15%, rgba(16, 185, 129, 0.4), transparent 45%),
-        radial-gradient(circle at 80% 85%, rgba(245, 158, 11, 0.35), transparent 45%),
-        radial-gradient(circle at 20% 85%, rgba(37, 99, 235, 0.5), transparent 48%),
-        linear-gradient(135deg, #060b14 0%, #0b1628 50%, #071921 100%);
+        radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.12), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.08), transparent 45%),
+        linear-gradient(145deg, #000000 0%, #0a0a0a 50%, #141414 100%);
       background-attachment: fixed;
-      overflow-x: hidden;
-    }
-
-    /* Decorative glowing glass orbs */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(55px);
-      z-index: 0;
-      pointer-events: none;
-    }
-    .orb-1 {
-      width: 240px;
-      height: 240px;
-      top: 6%;
-      left: -50px;
-      background: rgba(6, 182, 212, 0.4);
-    }
-    .orb-2 {
-      width: 270px;
-      height: 270px;
-      bottom: 8%;
-      right: -60px;
-      background: rgba(16, 185, 129, 0.35);
     }
 
     .container {
-      position: relative;
-      z-index: 1;
-      max-width: 540px;
-      margin: auto;
+      max-width: 560px;
+      margin: 0 auto;
     }
 
     .glass {
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.14),
-        rgba(255, 255, 255, 0.04)
-      );
-      backdrop-filter: blur(18px) saturate(160%);
-      -webkit-backdrop-filter: blur(18px) saturate(160%);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-top-color: rgba(255, 255, 255, 0.45);
-      border-left-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-top-color: rgba(255, 255, 255, 0.32);
       box-shadow:
-        0 14px 35px rgba(0, 0, 0, 0.45),
-        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+        0 16px 40px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
     .card {
-      border-radius: 20px;
+      border-radius: 16px;
       padding: 1.75rem;
     }
 
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+    .label {
+      font-size: 0.72rem;
+      font-weight: 600;
       text-transform: uppercase;
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(6, 182, 212, 0.18);
-      border: 1px solid rgba(6, 182, 212, 0.45);
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.55);
       margin-bottom: 1rem;
-      color: #67e8f9;
-      font-weight: bold;
     }
 
     .quote {
-      font-size: 1.35rem;
-      line-height: 1.55;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      font-size: 1.32rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #ffffff;
+      margin-bottom: 1.1rem;
     }
 
     .author {
-      font-weight: bold;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.72);
       text-align: right;
-      color: #34d399;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.6rem;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.55rem;
     }
 
     button {
-      padding: 0.6rem 1.05rem;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.58rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
-      font-weight: 600;
       cursor: pointer;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
     }
 
     button:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.15);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
     button:active {
-      transform: translateY(0);
+      transform: scale(0.98);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(37, 99, 235, 0.7));
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #000000;
+      font-weight: 600;
     }
 
-    .btn-fav {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.65), rgba(5, 150, 105, 0.75));
-    }
-
-    .btn-notify {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.7), rgba(217, 119, 6, 0.75));
+    .btn-primary:hover {
+      background: #e5e5e5;
+      border-color: #e5e5e5;
     }
 
     .btn-notify.active {
-      background: linear-gradient(135deg, rgba(20, 184, 166, 0.8), rgba(13, 148, 136, 0.85));
-      border-color: rgba(94, 234, 212, 0.7);
+      background: rgba(255, 255, 255, 0.92);
+      border-color: #ffffff;
+      color: #000000;
+      font-weight: 600;
     }
 
-    .status-bar {
+    .status {
       margin-top: 0.9rem;
-      font-size: 0.85rem;
-      color: #cbd5e1;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
       min-height: 1.2em;
     }
 
     #favorites {
-      margin-top: 2rem;
+      margin-top: 2.25rem;
     }
 
     #favorites h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-      color: #e2e8f0;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 0.85rem;
     }
 
     #favorites ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
     }
 
     #favorites li {
-      border-radius: 14px;
-      padding: 0.85rem 1rem;
-      margin-bottom: 0.65rem;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -184,31 +156,48 @@
     }
 
     .fav-text {
-      line-height: 1.4;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: #ffffff;
+    }
+
+    .fav-author {
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .remove-btn {
       flex-shrink: 0;
-      padding: 0.35rem 0.75rem;
-      font-size: 0.82rem;
-      background: linear-gradient(135deg, rgba(220, 38, 38, 0.7), rgba(153, 27, 27, 0.75));
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.75);
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.35);
     }
 
-    /* In-app toast fallback */
+    .remove-btn:hover {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #000000;
+    }
+
     .toast {
       position: fixed;
       bottom: 1.25rem;
       left: 50%;
-      transform: translateX(-50%) translateY(20px);
+      transform: translateX(-50%) translateY(16px);
       opacity: 0;
       pointer-events: none;
-      z-index: 50;
       max-width: 92vw;
       width: 440px;
-      border-radius: 16px;
+      background: rgba(18, 18, 18, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      border-radius: 12px;
       padding: 0.9rem 1.1rem;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85);
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .toast.show {
@@ -217,37 +206,36 @@
     }
 
     .toast-title {
-      font-weight: bold;
-      font-size: 0.9rem;
-      color: #67e8f9;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.65);
       margin-bottom: 0.25rem;
     }
 
     .toast-body {
       font-size: 0.9rem;
-      line-height: 1.35;
+      line-height: 1.4;
     }
   </style>
 </head>
 <body>
 
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-
 <div class="container">
   <div class="card glass">
-    <div class="badge">Daily Quote</div>
+    <div class="label">Daily Quote</div>
     <div id="quote" class="quote">Loading...</div>
     <div id="author" class="author"></div>
 
     <div class="actions">
       <button id="newQuote" class="btn-primary">New Quote</button>
-      <button id="saveFav" class="btn-fav">Save Favorite</button>
+      <button id="saveFav">Save Favorite</button>
       <button id="notifyQuote" class="btn-notify">Notify Quote</button>
       <button id="autoNotify" class="btn-notify">Auto Push: Off</button>
     </div>
 
-    <div id="statusMsg" class="status-bar"></div>
+    <div id="statusMsg" class="status"></div>
   </div>
 
   <div id="favorites">
@@ -256,8 +244,8 @@
   </div>
 </div>
 
-<div id="toast" class="toast glass">
-  <div id="toastTitle" class="toast-title">Quote Notification</div>
+<div id="toast" class="toast">
+  <div id="toastTitle" class="toast-title">Daily Quote</div>
   <div id="toastBody" class="toast-body"></div>
 </div>
 
@@ -311,15 +299,9 @@
   }
 
   async function ensureNotificationPermission() {
-    if (!('Notification' in window)) {
-      return 'unsupported';
-    }
-    if (Notification.permission === 'granted') {
-      return 'granted';
-    }
-    if (Notification.permission === 'denied') {
-      return 'denied';
-    }
+    if (!('Notification' in window)) return 'unsupported';
+    if (Notification.permission === 'granted') return 'granted';
+    if (Notification.permission === 'denied') return 'denied';
     return await Notification.requestPermission();
   }
 
@@ -332,25 +314,23 @@
 
     if (permission === 'granted') {
       try {
-        new Notification('Daily Quote Push', {
+        new Notification('Daily Quote', {
           body: text,
           tag: 'daily-quote-push'
         });
-        setStatus('Push quote notification sent.');
+        setStatus('Quote notification sent.');
         return;
       } catch (e) {
-        // Fallback to in-app glass banner
+        // Fallback to toast
       }
     }
 
-    showToast('Daily Quote Push', text);
-    if (permission === 'denied') {
-      setStatus('Browser notifications blocked—showed an in-app glass notification instead.');
-    } else if (permission === 'unsupported') {
-      setStatus('Browser notifications not supported here—showed an in-app glass notification.');
-    } else {
-      setStatus('Notification permission not granted—showed an in-app glass notification.');
-    }
+    showToast('Daily Quote', text);
+    setStatus(
+      permission === 'denied'
+        ? 'Browser notifications blocked; displayed an in-app alert instead.'
+        : 'Displayed an in-app quote alert.'
+    );
   }
 
   function getFavorites() {
@@ -366,7 +346,7 @@
 
       const span = document.createElement('span');
       span.className = 'fav-text';
-      span.innerHTML = `"${item.quote}" — <strong>${item.author}</strong>`;
+      span.innerHTML = `"${item.quote}" <span class="fav-author">— ${item.author}</span>`;
 
       const delBtn = document.createElement('button');
       delBtn.textContent = 'Remove';
@@ -391,9 +371,9 @@
       favs.push(currentQuote);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
       renderFavorites();
-      setStatus('Saved to Favorites.');
+      setStatus('Saved to favorites.');
     } else {
-      setStatus('Already in Favorites.');
+      setStatus('Quote is already in favorites.');
     }
   });
 
@@ -407,14 +387,14 @@
       autoTimer = null;
       autoNotifyBtn.textContent = 'Auto Push: Off';
       autoNotifyBtn.classList.remove('active');
-      setStatus('Auto quote push stopped.');
+      setStatus('Auto push disabled.');
       return;
     }
 
     await ensureNotificationPermission();
     autoNotifyBtn.textContent = 'Auto Push: On (60s)';
     autoNotifyBtn.classList.add('active');
-    setStatus('Auto quote push enabled (every 60 seconds while open).');
+    setStatus('Auto push enabled every 60 seconds while this tab is open.');
 
     sendQuoteNotification(true);
     autoTimer = setInterval(() => {
